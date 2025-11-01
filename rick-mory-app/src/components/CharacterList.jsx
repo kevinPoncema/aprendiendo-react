@@ -25,26 +25,29 @@ function CharacterList() {
 
     return (
         <>
-        <div className="character-list">
-            {characters.map((char) => (
-                <Card
-                    key={char.id}
-                    name={char.name}
-                    status={char.status}
-                    species={char.species}
-                    image={char.image}
-                    origin={char.origin.name}
-                />
-            ))}
-        </div>
+        <div className="container mx-auto p-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {characters.map((char) => (
+                    <Card
+                        key={char.id}
+                        name={char.name}
+                        status={char.status}
+                        species={char.species}
+                        gender={char.gender}
+                        image={char.image}
+                        origin={char.origin.name}
+                    />
+                ))}
+            </div>
 
-        <div>
-            <button onClick={handleNextPage}>
-               +
-            </button>
-            <button onClick={handleBeforePage}>
-               -
-            </button>
+            <div className="mt-6 flex justify-center space-x-4">
+                <button className="px-4 py-2 bg-gray-200 rounded" onClick={handleBeforePage}>
+                   Anterior
+                </button>
+                <button className="px-4 py-2 bg-gray-200 rounded" onClick={handleNextPage}>
+                   Siguiente
+                </button>
+            </div>
         </div>
     </>
     );
